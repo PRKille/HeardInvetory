@@ -7,7 +7,9 @@ namespace HeardInventory.Models
 {
   public class HeardInventoryContext : DbContext
   {
-    public DbSet<Item> Item {get;set;} 
+    public DbSet<Item> Items {get;set;}
+    public DbSet<Category> Categories {get;set;}
+    public DbSet<Vendor> Vendors {get;set;}
     public HeardInventoryContext(DbContextOptions<HeardInventoryContext> options) : base(options)
     {
 
