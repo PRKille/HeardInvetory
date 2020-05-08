@@ -65,4 +65,9 @@ namespace HeardInventory
             });
         }
     }
+
+    public static class DBConfiguration
+    {
+        public static string ConnectionString = "server=localhost;user=postgres;password=Epicodus;database=heard_inventory;";
+    }
 }
