@@ -12,8 +12,8 @@ Heard! is the next generation of restaurant inventory and pricing systems. Desig
 
 #### As a User I want to:
 _For my overall inventory list:_
-* Be able to add items to my inventory list, including name, type(produce, meat, etc), vendor, purchase price, purchase amount(weight, volume, number of items).
-* Be able to view my inventory list as a whole, type, vendor, or individual items.
+* Be able to add items to my inventory list, including name, category(produce, meat, etc), vendor, purchase price, purchase amount(weight, volume, number of items).
+* Be able to view my inventory list as a whole, category, vendor, or individual items.
 * Be able to delete items from my inventory list.
 * Be able to update my inventory list to reflect changes in price/vendor/quantity etc.
 
@@ -24,6 +24,10 @@ _For auditing my inventory_
 * Be able to input total Food or Drink sales for the inventory period.
 * Be able to view my current Food or Drink cost percentage based on audit numbers.
 * Have current inventory stored as starting inventory for the next inventory cycle upon closing audit.
+
+## Database Diagram
+
+![DatabaseDiagram](./HeardDatabaseDiagram.png)
 
 ## Setup/Installation Requirements
 
