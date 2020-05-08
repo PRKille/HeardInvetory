@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using HeardInventory.Models;
 
 namespace HeardInventory
 {
@@ -21,6 +22,8 @@ namespace HeardInventory
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddEntityFrameworkNpgsql().AddDbContext<HeardInventoryContext>(opt =>
+            opt.UseNpgsql(Configuration.GetConnectionString("HeardInventoryConnection")));
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -64,10 +67,5 @@ namespace HeardInventory
                 }
             });
         }
-    }
-
-    public static class DBConfiguration
-    {
-        public static string ConnectionString = "server=localhost;user=postgres;password=Epicodus;database=heard_inventory;";
     }
 }
