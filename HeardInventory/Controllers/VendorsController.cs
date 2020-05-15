@@ -38,7 +38,7 @@ namespace HeardInventory.Controllers
       _db.SaveChanges();
     }
 
-    [HttpPut]
+    [HttpPut("{id}")]
     public void Put(int id, [FromBody] Vendor Vendor)
     {
       Vendor.VendorId = id;
