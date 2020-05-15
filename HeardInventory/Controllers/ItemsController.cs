@@ -30,12 +30,10 @@ namespace HeardInventory.Controllers
       }
       if(category != null)
       {
-        // var catId = _db.Categories.FirstOrDefault(cat => cat.CategoryName == category).CategoryId;
         query = query.Where(item => item.Category.CategoryName == category);
       }
       if(vendor != null)
       {
-        // var venName = _db.Vendors.FirstOrDefault(ven => ven.VendorName == vendor).VendorName;
         query = query.Where(item => item.Vendor.VendorName == vendor);
       }
       return query.ToList();
