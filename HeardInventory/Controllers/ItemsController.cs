@@ -21,7 +21,7 @@ namespace HeardInventory.Controllers
     [HttpGet]
     public ActionResult<IEnumerable<Item>> Get(string name, string category, string vendor)
     {
-      var query = _db.Items.AsQueryable();
+      var query = _db.Items.Include(category).Include(vendor).AsQueryable();
 
       if(name != null)
       {
