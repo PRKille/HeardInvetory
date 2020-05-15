@@ -9,7 +9,8 @@ namespace HeardInventory.Models
     public virtual Vendor Vendor {get;set;}
     public int VendorId {get;set;}
     public int PurchasePrice {get;set;}
-    public string PurchaseQuantity {get;set;}
+    public int PurchaseQuantity {get;set;}
+    public string PurchaseQuantityType {get;set;}
     public int StartingInventory {get;set;}
     public int CurrentInventory {get;set;}
   }
