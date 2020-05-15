@@ -1,7 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using HeardInventory.Models;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.EntityFrameworkCore;
+using HeardInventory.Models;
 
 namespace HeardInventory.Controllers
 {
@@ -14,10 +16,40 @@ namespace HeardInventory.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    [HttpGet]
+    public ActionResult <IEnumerable<Category>> Get()
     {
-      List<Category> model = _db.Categories.ToList();
-      return View(model);
+      return _db.Categories.ToList();
+    }
+
+    [HttpGet("{id}")]
+    public ActionResult<Category> Get(int id)
+    {
+      return _db.Categories.FirstOrDefault(cat => cat.CategoryId == id);
+    }
+
+    [EnableCors("MyPolicy")]
+    [HttpPost]
+    public void Post([FromBody] Category category)
+    {
+      _db.Categories.Add(category);
+      _db.SaveChanges();
+    }
+
+    [HttpPut]
+    public void Put(int id, [FromBody] Category category)
+    {
+      category.CategoryId = id;
+      _db.Entry(category).State = EntityState.Modified;
+      _db.SaveChanges();
+    }
+
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
+      Category categoryForDeletion = _db.Categories.FirstOrDefault(category => category.CategoryId == id);
+      _db.Categories.Remove(categoryForDeletion);
+      _db.SaveChanges();
     }
   }
 }
