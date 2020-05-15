@@ -6,3 +6,5 @@
 5/15/20:
 0800 Day begins.
 1111 Begin Postman testing of API and PostgreSQL database.
+1208 Lunch
+1318 Return to figuring out query issue
