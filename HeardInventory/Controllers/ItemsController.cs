@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +22,7 @@ namespace HeardInventory.Controllers
     [HttpGet]
     public ActionResult<IEnumerable<Item>> Get(string name, string category, string vendor)
     {
-      var query = _db.Items.Include(category).Include(vendor).AsQueryable();
+      var query = _db.Items.AsQueryable();
 
       if(name != null)
       {
@@ -29,10 +30,12 @@ namespace HeardInventory.Controllers
       }
       if(category != null)
       {
+        // var catId = _db.Categories.FirstOrDefault(cat => cat.CategoryName == category).CategoryId;
         query = query.Where(item => item.Category.CategoryName == category);
       }
       if(vendor != null)
       {
+        // var venName = _db.Vendors.FirstOrDefault(ven => ven.VendorName == vendor).VendorName;
         query = query.Where(item => item.Vendor.VendorName == vendor);
       }
       return query.ToList();
