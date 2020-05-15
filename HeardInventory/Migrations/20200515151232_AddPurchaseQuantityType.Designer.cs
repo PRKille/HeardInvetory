@@ -2,15 +2,17 @@
 using HeardInventory.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace HeardInventory.Migrations
 {
     [DbContext(typeof(HeardInventoryContext))]
-    partial class HeardInventoryContextModelSnapshot : ModelSnapshot
+    [Migration("20200515151232_AddPurchaseQuantityType")]
+    partial class AddPurchaseQuantityType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,7 +25,7 @@ namespace HeardInventory.Migrations
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("CategoryName");
+                    b.Property<int>("CategoryName");
 
                     b.HasKey("CategoryId");
 
