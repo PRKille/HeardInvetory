@@ -32,6 +32,10 @@ _For auditing my inventory_
 
 You can view the API endpoints [here](https://app.swaggerhub.com/apis/PRKille/heard-inventory_api/v1)
 
+## Component Diagram
+
+![ComponentDiagram](./HeardComponentDiagram.png)
+
 ## Setup/Installation Requirements
 
 ### Install .NET Core
