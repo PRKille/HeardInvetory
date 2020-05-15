@@ -7,6 +7,8 @@ using HeardInventory.Models;
 
 namespace HeardInventory.Controllers
 {
+  [Route("api/[controller]")]
+  [ApiController]
   public class VendorsController : Controller
   {
     private readonly HeardInventoryContext _db;
