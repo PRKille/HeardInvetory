@@ -8,3 +8,4 @@
 1111 Begin Postman testing of API and PostgreSQL database.
 1208 Lunch
 1318 Return to figuring out query issue
+1526 Begin working on component tree
