@@ -12,7 +12,7 @@ Heard! is the next generation of restaurant inventory and pricing systems. Desig
 
 #### As a User I want to:
 _For my overall inventory list:_
-* Be able to add items to my inventory list, including name, category(produce, meat, etc), vendor, purchase price, purchase amount(weight, volume, number of items).
+* Be able to add items to my inventory list, including name, category(produce, meat, etc), vendor, purchase price, purchase amount and type(weight, volume, number of items).
 * Be able to view my inventory list as a whole, category, vendor, or individual items.
 * Be able to delete items from my inventory list.
 * Be able to update my inventory list to reflect changes in price/vendor/quantity etc.
@@ -28,6 +28,8 @@ _For auditing my inventory_
 ## Database Diagram
 
 ![DatabaseDiagram](./HeardDatabaseDiagram.png)
+
+You can view the API endpoints [here](https://app.swaggerhub.com/apis/PRKille/heard-inventory_api/v1)
 
 ## Setup/Installation Requirements
 
@@ -46,7 +48,7 @@ _Enter the command ``dotnet tool install -g dotnet-script`` in Terminal (macOS) 
 
 ### Install PostgreSQL
 
-* _Follow the instructions found on the [PostgreSQL Tutorial](https://www.postgresqltutorial.com/install-postgresql/) page to download and verify installation of PostgreSQL.
+* _Follow the instructions found on the [PostgreSQL Tutorial](https://www.postgresqltutorial.com/install-postgresql/) page to download and verify installation of PostgreSQL._
 
 ### Clone this repository
 
@@ -71,10 +73,14 @@ _To view/edit the source code of this application, open the contents of the Libr
 ## Technologies Used
 
 * C#
-* ASP.NET Core MVC 2.2
+* ASP.NET Core MVC
 * dotnet script
 * Entity Framework Core 2.2
 * Git
+* React.js
+* PostgreSQL
+* Swagger
+* Bootstrap
 
 ## License
 
