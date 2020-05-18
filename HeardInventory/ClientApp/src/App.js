@@ -1,15 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import NavMenu from './components/NavMenu';
-
-const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
+import InventoryControl from './components/InventoryControl';
 
 function App() {
   return (
-    <BrowserRouter basename={baseUrl}>
-      <NavMenu />
-      <h1>Heard! Inventory Solutions</h1>
-    </BrowserRouter>
+    <React.Fragment>
+      <InventoryControl />
+    </React.Fragment>
   );
 }
 
