@@ -22,5 +22,8 @@ Item.propTypes = {
   purchasePrice: PropTypes.number,
   purchaseQuantity: PropTypes.number,
   purchaseQuantityType: PropTypes.string,
-  startingInventory: PropTypes.number
+  startingInventory: PropTypes.number,
+  itemId: PropTypes.itemId
 }
+
+export default Item;
