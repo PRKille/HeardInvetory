@@ -9,3 +9,6 @@
 1208 Lunch
 1318 Return to figuring out query issue
 1526 Begin working on component tree
+
+5/18/20:
+0803 I am shamed by my late start.
