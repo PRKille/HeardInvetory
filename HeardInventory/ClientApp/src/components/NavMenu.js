@@ -37,7 +37,7 @@ class NavMenu extends React.Component {
                   <NavLink tag={Link} className="text-dark" to="/items">All Items</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
+                  <NavLink tag={Link} className="text-dark" to="/add">Add Item</NavLink>
                 </NavItem>
               </ul>
             </Collapse>
