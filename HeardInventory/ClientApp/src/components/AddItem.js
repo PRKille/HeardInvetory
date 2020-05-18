@@ -29,9 +29,7 @@ function AddItem(props) {
     fetch(`http://localhost:5000/api/items`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
-        console.log(e.target);
-        // props.onAddItem(e.target);
-        // history.push(`/list/${animal.value}`);
+
       })
       .catch((error) => console.log('error', error));
   };

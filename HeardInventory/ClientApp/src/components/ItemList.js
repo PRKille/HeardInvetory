@@ -6,6 +6,8 @@ function ItemList() {
   const [ categoryListState, setCategoryListState ] = useState([]);
   const [ vendorListState, setVendorListState ] = useState([]);
   const [ loadState, setLoadState ] = useState(false);
+  const [ categoryLoadState, setCategoryLoadState ] = useState(false);
+  const [ vendorLoadState, setVendorLoadState ] = useState(false);
 
   useEffect(() => {
     if (!loadState) {
@@ -15,6 +17,7 @@ function ItemList() {
       })
       .then((jsonifiedResponse) => {
         setCategoryListState(jsonifiedResponse);
+        setCategoryLoadState(true);
       })
       .catch((error) => {
         console.log('Category Load Error: ', error);
@@ -25,6 +28,7 @@ function ItemList() {
       })
       .then((jsonifiedResponse) => {
         setVendorListState(jsonifiedResponse);
+        setVendorLoadState(true);
       })
       .catch((error) => {
         console.log('Venor Load Error: ', error);
@@ -35,7 +39,9 @@ function ItemList() {
       })
       .then((jsonifiedResponse) => {
         setItemListState(jsonifiedResponse);
-        setLoadState(true);
+        if (categoryLoadState && vendorLoadState) {
+          setLoadState(true);
+        }
       })
       .catch((error) => {
         console.log('Inventory Error: ', error);
