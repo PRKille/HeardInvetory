@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 function AddItem(props) {
 
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
     const { itemName, category, vendor, purchasePrice, purchaseQuantity, purchaseQuantityType } = e.target;
@@ -29,7 +31,7 @@ function AddItem(props) {
     fetch(`http://localhost:5000/api/items`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
-
+        history.push('/items');
       })
       .catch((error) => console.log('error', error));
   };

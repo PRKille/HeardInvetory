@@ -13,11 +13,7 @@ function InventoryControl() {
       <NavMenu />
       <Route exact path="/" component={Home} />
       <Route exact path="/items" component={ItemList} />
-      <Route exact path="/add" 
-        component={() => {
-          return <AddItem />;
-         }}
-        />
+      <Route exact path="/add" component={AddItem} />
     </BrowserRouter>
     );
   }
