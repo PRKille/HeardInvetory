@@ -42,7 +42,7 @@ namespace HeardInventory.Controllers
     [HttpGet("{id}")]
     public ActionResult<Item> Get(int id)
     {
-      return _db.Items.FirstOrDefault(item => item.ItemId == id);
+      return _db.Items.Include("Category").Include("Vendor").FirstOrDefault(item => item.ItemId == id);
     }
 
     [EnableCors("MyPolicy")]

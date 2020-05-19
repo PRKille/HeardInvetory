@@ -8,6 +8,7 @@ import CategoryList from './CategoryList';
 import VendorList from './VendorList';
 import CategoryDetails from './CategoryDetails';
 import VendorDetails from './VendorDetails';
+import EditItem from './EditItem';
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 
@@ -17,6 +18,7 @@ function InventoryControl() {
       <NavMenu />
       <Route exact path="/" component={Home} />
       <Route exact path="/items" component={ItemList} />
+      <Route path="/items/:itemId" component={EditItem} />
       <Route exact path="/add" component={AddItem} />
       <Route exact path="/categories" component={CategoryList} />
       <Route exact path="/vendors" component={VendorList} />

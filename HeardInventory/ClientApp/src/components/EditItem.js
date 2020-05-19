@@ -54,8 +54,8 @@ function EditItem(props) {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" name="itemName" defaultValue={itemState.itemName} />
-      <input type="text" name="category" defaultValue={itemState.category.categoryId} />
-      <input type="text" name="vendor" defaultValue={itemState.vendor.vendorId} />
+      <input type="text" name="category" defaultValue={itemState.categoryId} />
+      <input type="text" name="vendor" defaultValue={itemState.vendorId} />
       <input type="text" name="purchasePrice" defaultValue={itemState.purchasePrice} />
       <input type="text" name="purchaseQuantity" defaultValue={itemState.purchaseQuantity} />
       <input type="text" name="purchaseQuantityType" defaultValue={itemState.purchaseQuantityType} />

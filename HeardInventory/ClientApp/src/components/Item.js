@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function Item(props) {
@@ -10,6 +11,9 @@ function Item(props) {
         <li>Vendor: {props.vendor}</li>
         <li>Purchase Info: ${props.purchasePrice}/{props.purchaseQuantity}{props.purchaseQuantityType}</li>
         <li>Last Inventory: {props.startingInventory} {props.purchaseQuantityType}</li>
+        <Link to={`/items/${props.itemId}`}>
+          <button>Edit {props.itemName}</button>
+        </Link>
       </ul>
     </React.Fragment>
   )
