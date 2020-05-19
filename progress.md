@@ -13,3 +13,6 @@
 5/18/20:
 0803 I am shamed by my late start.
 1550 Have been working on optimizing API calls to no effect, will continue.
+
+5/19/20:
+0746 Making up for late start yesterday.
