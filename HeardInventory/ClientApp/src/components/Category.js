@@ -16,7 +16,6 @@ function Category(props) {
 Category.propTypes = {
   categoryName: PropTypes.string,
   categoryId: PropTypes.number,
-  items: PropTypes.array
 }
 
 export default Category;
