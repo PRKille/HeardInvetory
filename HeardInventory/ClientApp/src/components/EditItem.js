@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 function EditItem(props) {
   const { match: { params } } = props;
   const [ itemState, setItemState ] = useState({});
+  const [ categoryState, setCategoryState ] = useState([]);
+  const [ vendorState, setVendorState ] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
@@ -13,6 +15,26 @@ function EditItem(props) {
       })
       .then((jsonifiedResponse) => {
         setItemState(jsonifiedResponse);
+        fetch(`http://localhost:5000/api/categories`)
+          .then((response) => {
+            return response.json();
+          })
+          .then((jsonifiedResponse) => {
+            setCategoryState(jsonifiedResponse);
+            fetch(`http://localhost:5000/api/vendors`)
+              .then((response) => {
+                return response.json();
+              })
+              .then((jsonifiedResponse) => {
+                setVendorState(jsonifiedResponse);
+              })
+            .catch((error) => {
+              console.log('Vendor Error: ', error);
+            });
+          })
+        .catch((error) => {
+          console.log('Category Error: ', error);
+        });
       })
       .catch((error) => {
         console.log('Item Load Error: ', error);
@@ -59,12 +81,34 @@ function EditItem(props) {
       .catch((error) => console.log('error', error));
   };
 
+  const categoryOptions = categoryState.map((category) => 
+      <option
+        value={category.categoryId}
+        >
+          {category.categoryName}
+        </option>
+      );
+
+    const vendorOptions = vendorState.map((vendor) => 
+      <option
+        value={vendor.vendorId}
+        >
+          {vendor.vendorName}
+        </option>
+      );
+
   return (
     <React.Fragment>
       <form onSubmit={handleSubmit}>
         <input type="text" name="itemName" defaultValue={itemState.itemName} />
-        <input type="text" name="category" defaultValue={itemState.categoryId} />
-        <input type="text" name="vendor" defaultValue={itemState.vendorId} />
+        <select name="category">
+        <option>Select Category</option>
+        {categoryOptions}
+      </select>
+      <select name="vendor">
+        <option>Select Vendor</option>
+        {vendorOptions}
+      </select>
         <input type="text" name="purchasePrice" defaultValue={itemState.purchasePrice} />
         <input type="text" name="purchaseQuantity" defaultValue={itemState.purchaseQuantity} />
         <input type="text" name="purchaseQuantityType" defaultValue={itemState.purchaseQuantityType} />

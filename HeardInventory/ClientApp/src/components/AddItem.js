@@ -64,40 +64,40 @@ function AddItem() {
   };
 
 
-      const categoryOptions = categoryState.map((category) => 
-        <option
-          value={category.categoryId}
-          >
-            {category.categoryName}
-          </option>
-        );
+    const categoryOptions = categoryState.map((category) => 
+      <option
+        value={category.categoryId}
+        >
+          {category.categoryName}
+        </option>
+      );
 
-      const vendorOptions = vendorState.map((vendor) => 
-        <option
-          value={vendor.vendorId}
-          >
-            {vendor.vendorName}
-          </option>
-        );
-    
-      return (
-        <form onSubmit={handleSubmit}>
-        <input type="text" name="itemName" placeholder="Name" />
-        <select name="category">
-          <option>Select Category</option>
-          {categoryOptions}
-        </select>
-        <select name="vendor">
-          <option>Select Vendor</option>
-          {vendorOptions}
-        </select>
-        <input type="text" name="purchasePrice" placeholder="Price" />
-        <input type="text" name="purchaseQuantity" placeholder="Quantity" />
-        <input type="text" name="purchaseQuantityType" placeholder="Quantity Type" />
-        <button type="submit">Submit</button>
-      </form>
-    )
-  }
+    const vendorOptions = vendorState.map((vendor) => 
+      <option
+        value={vendor.vendorId}
+        >
+          {vendor.vendorName}
+        </option>
+      );
+  
+    return (
+      <form onSubmit={handleSubmit}>
+      <input type="text" name="itemName" placeholder="Name" />
+      <select name="category">
+        <option>Select Category</option>
+        {categoryOptions}
+      </select>
+      <select name="vendor">
+        <option>Select Vendor</option>
+        {vendorOptions}
+      </select>
+      <input type="text" name="purchasePrice" placeholder="Price" />
+      <input type="text" name="purchaseQuantity" placeholder="Quantity" />
+      <input type="text" name="purchaseQuantityType" placeholder="Quantity Type" />
+      <button type="submit">Submit</button>
+    </form>
+  )
+}
 
 
 export default AddItem;
