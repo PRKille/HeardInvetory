@@ -12,6 +12,7 @@ function ItemList() {
           return response.json();
         })
         .then((jsonifiedResponse) => {
+          jsonifiedResponse.sort((a,b) => a.itemId - b.itemId);
           setItemListState(jsonifiedResponse);
           setLoadState(true);
         })
