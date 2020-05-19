@@ -19,7 +19,15 @@ function EditItem(props) {
       });
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleDelete = id => {
+    fetch(`http://localhost:5000/api/items/${id}`, { method : 'DELETE'})
+      .then((response) => console.log('DELETED', response))
+      .then(() => {
+        history.push('/items');
+      })
+  }
+
+  const handleSubmit = e => {
     e.preventDefault();
     const { itemName, category, vendor, purchasePrice, purchaseQuantity, purchaseQuantityType } = e.target;
 
@@ -52,15 +60,18 @@ function EditItem(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="itemName" defaultValue={itemState.itemName} />
-      <input type="text" name="category" defaultValue={itemState.categoryId} />
-      <input type="text" name="vendor" defaultValue={itemState.vendorId} />
-      <input type="text" name="purchasePrice" defaultValue={itemState.purchasePrice} />
-      <input type="text" name="purchaseQuantity" defaultValue={itemState.purchaseQuantity} />
-      <input type="text" name="purchaseQuantityType" defaultValue={itemState.purchaseQuantityType} />
-      <button type="submit">Submit</button>
-    </form>
+    <React.Fragment>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="itemName" defaultValue={itemState.itemName} />
+        <input type="text" name="category" defaultValue={itemState.categoryId} />
+        <input type="text" name="vendor" defaultValue={itemState.vendorId} />
+        <input type="text" name="purchasePrice" defaultValue={itemState.purchasePrice} />
+        <input type="text" name="purchaseQuantity" defaultValue={itemState.purchaseQuantity} />
+        <input type="text" name="purchaseQuantityType" defaultValue={itemState.purchaseQuantityType} />
+        <button type="submit">Submit</button>
+      </form>
+      <button onClick={() => {handleDelete(itemState.itemId)}}>Delete</button>
+    </React.Fragment>
   )
 }
 
