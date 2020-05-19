@@ -31,7 +31,6 @@ function CategoryList() {
             <Category
               categoryName={category.categoryName}
               categoryId={category.categoryId}
-              items={category.items}
               key={category.categoryId}
               />
             );

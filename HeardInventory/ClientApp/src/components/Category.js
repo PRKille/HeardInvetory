@@ -1,26 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function Item(props) {
+function Category(props) {
   return (
     <React.Fragment>
       <h1>{props.categoryName}</h1>
-      <h3>Items:</h3>
-      <ul>
-        {props.items.map((item) => {
-          return (
-            <li>{item.itemName}</li>
-          )
-        })}
-      </ul>
+      <Link to={`/category/${props.categoryId}`}>
+        <button>View Items</button>
+      </Link>
     </React.Fragment>
   )
 }
 
-Item.propTypes = {
+Category.propTypes = {
   categoryName: PropTypes.string,
   categoryId: PropTypes.number,
   items: PropTypes.array
 }
 
-export default Item;
+export default Category;
