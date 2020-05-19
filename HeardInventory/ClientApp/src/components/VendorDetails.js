@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function VendorDetails(props) {
   const { match: { params } } = props;
   const [ loadedState, setLoadedState ] = useState(false);
   const [ itemsState, setItemsState ] = useState({});
+
+  const history = useHistory();
 
   useEffect(() => {
     if(!loadedState) {
@@ -21,6 +24,14 @@ function VendorDetails(props) {
     }
   }, []);
 
+  const handleDelete = id => {
+    fetch(`http://localhost:5000/api/vendors/${id}`, { method : 'DELETE'})
+      .then((response) => console.log('DELETED', response))
+      .then(() => {
+        history.push('/vendors');
+      })
+  }
+
   if(loadedState){
     return (
       <React.Fragment>
@@ -30,6 +41,7 @@ function VendorDetails(props) {
             <p>{item.itemName}</p>
           )
         })}
+        <button onClick={() => {handleDelete(params.vendorId)}}>Delete</button>
       </React.Fragment>
     )
   } else {

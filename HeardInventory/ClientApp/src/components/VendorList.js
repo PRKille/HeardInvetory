@@ -24,7 +24,7 @@ function VendorList() {
   if (loadState) {
     return (
       <React.Fragment>
-        <h1>vendors:</h1>
+        <h1>Vendors:</h1>
         {vendorListState.map((vendor) => {
           return (
             <Vendor
