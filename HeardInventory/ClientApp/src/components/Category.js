@@ -18,7 +18,7 @@ function Item(props) {
 }
 
 Item.propTypes = {
-  categorName: PropTypes.string,
+  categoryName: PropTypes.string,
   categoryId: PropTypes.number,
   items: PropTypes.array
 }
