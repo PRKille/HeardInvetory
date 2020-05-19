@@ -6,8 +6,6 @@ function ItemList() {
   const [ categoryListState, setCategoryListState ] = useState([]);
   const [ vendorListState, setVendorListState ] = useState([]);
   const [ loadState, setLoadState ] = useState(false);
-  const [ categoryLoadState, setCategoryLoadState ] = useState(false);
-  const [ vendorLoadState, setVendorLoadState ] = useState(false);
 
   useEffect(() => {
     if (!loadState) {
@@ -17,37 +15,36 @@ function ItemList() {
       })
       .then((jsonifiedResponse) => {
         setCategoryListState(jsonifiedResponse);
-        setCategoryLoadState(true);
+        console.log("Category Loaded");
+        fetch(`http://localhost:5000/api/vendors`)
+          .then((response) => {
+          return response.json();
+        })
+          .then((jsonifiedResponse) => {
+            setVendorListState(jsonifiedResponse);
+            console.log("Vendor Loaded");
+            fetch(`http://localhost:5000/api/items`)
+             .then((response) => {
+                return response.json();
+              })
+              .then((jsonifiedResponse) => {
+                setItemListState(jsonifiedResponse);
+                setLoadState(true);
+                console.log("Fully Loaded");
+              })
+            .catch((error) => {
+              console.log('Inventory Error: ', error);
+            });
+          })
+        .catch((error) => {
+          console.log('Venor Load Error: ', error);
+        });
       })
-      .catch((error) => {
-        console.log('Category Load Error: ', error);
-      });
-      fetch(`http://localhost:5000/api/vendors`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonifiedResponse) => {
-        setVendorListState(jsonifiedResponse);
-        setVendorLoadState(true);
-      })
-      .catch((error) => {
-        console.log('Venor Load Error: ', error);
-      });
-      fetch(`http://localhost:5000/api/items`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonifiedResponse) => {
-        setItemListState(jsonifiedResponse);
-        if (categoryLoadState && vendorLoadState) {
-          setLoadState(true);
-        }
-      })
-      .catch((error) => {
-        console.log('Inventory Error: ', error);
-      });
+    .catch((error) => {
+      console.log('Category Load Error: ', error);
+    });
     }
-  });
+  },[]);
  
   if (loadState) {
     return (
