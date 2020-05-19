@@ -4,9 +4,9 @@ namespace HeardInventory.Models
   {
     public int ItemId {get;set;}
     public string ItemName {get;set;}
-    public virtual Category Category {get;set;}
+    public Category Category {get;set;}
     public int CategoryId {get;set;}
-    public virtual Vendor Vendor {get;set;}
+    public Vendor Vendor {get;set;}
     public int VendorId {get;set;}
     public int PurchasePrice {get;set;}
     public int PurchaseQuantity {get;set;}
