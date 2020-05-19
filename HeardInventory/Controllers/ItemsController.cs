@@ -36,7 +36,7 @@ namespace HeardInventory.Controllers
       {
         query = query.Where(item => item.Vendor.VendorName == vendor);
       }
-      return query.ToList();
+      return query.Include("Category").Include("Vendor").ToList();
     }
 
     [HttpGet("{id}")]
