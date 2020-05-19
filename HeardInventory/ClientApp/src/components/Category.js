@@ -6,7 +6,7 @@ function Category(props) {
   return (
     <React.Fragment>
       <h1>{props.categoryName}</h1>
-      <Link to={`/category/${props.categoryId}`}>
+      <Link to={`/categories/${props.categoryName}/${props.categoryId}`}>
         <button>View Items</button>
       </Link>
     </React.Fragment>

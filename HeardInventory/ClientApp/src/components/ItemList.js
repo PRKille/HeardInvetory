@@ -14,7 +14,6 @@ function ItemList() {
         .then((jsonifiedResponse) => {
           setItemListState(jsonifiedResponse);
           setLoadState(true);
-          console.log("Fully Loaded");
         })
       .catch((error) => {
         console.log('Inventory Error: ', error);

@@ -14,7 +14,6 @@ function CategoryList() {
       .then((jsonifiedResponse) => {
         setCategoryListState(jsonifiedResponse);
         setLoadState(true);
-        console.log("Category Loaded");
       })
       .catch((error) => {
         console.log('Category Load Error: ', error);
