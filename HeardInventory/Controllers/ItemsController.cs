@@ -50,6 +50,16 @@ namespace HeardInventory.Controllers
     public void Post([FromBody] Item item)
     {
       _db.Items.Add(item);
+      Audit audit = new Audit
+      {
+        ItemName = item.ItemName,
+        ItemId = item.ItemId,
+        PurchasePrice = item.PurchasePrice,
+        StartingInventory = 0,
+        CurrentInventory = 0,
+        ItemPurchases = 0
+      };
+      _db.Audits.Add(audit);
       _db.SaveChanges();
     }
 
