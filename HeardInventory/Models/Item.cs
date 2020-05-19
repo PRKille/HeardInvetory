@@ -11,7 +11,5 @@ namespace HeardInventory.Models
     public int PurchasePrice {get;set;}
     public int PurchaseQuantity {get;set;}
     public string PurchaseQuantityType {get;set;}
-    public int StartingInventory {get;set;}
-    public int CurrentInventory {get;set;}
   }
 }
