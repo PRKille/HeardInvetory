@@ -3,7 +3,7 @@ import ItemList from './ItemList';
 import NavMenu from './NavMenu';
 import Home from './Home';
 import AddItem from './AddItem';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 

@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
-function AddItem(props) {
+function AddItem() {
 
   const history = useHistory();
   const handleSubmit = (e) => {
