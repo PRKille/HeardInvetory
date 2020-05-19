@@ -23,6 +23,9 @@ function NavMenu()  {
               <NavItem>
                 <NavLink className="text-dark" href="/categories">Your Categories</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink className="text-dark" href="/vendors">Your Vendors</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
