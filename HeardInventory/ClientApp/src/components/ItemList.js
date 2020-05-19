@@ -3,46 +3,22 @@ import Item from './Item';
 
 function ItemList() {
   const [ itemListState, setItemListState ] = useState([]);
-  const [ categoryListState, setCategoryListState ] = useState([]);
-  const [ vendorListState, setVendorListState ] = useState([]);
   const [ loadState, setLoadState ] = useState(false);
 
   useEffect(() => {
     if (!loadState) {
-      fetch(`http://localhost:5000/api/categories`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((jsonifiedResponse) => {
-        setCategoryListState(jsonifiedResponse);
-        console.log("Category Loaded");
-        fetch(`http://localhost:5000/api/vendors`)
-          .then((response) => {
+      fetch(`http://localhost:5000/api/items`)
+        .then((response) => {
           return response.json();
         })
-          .then((jsonifiedResponse) => {
-            setVendorListState(jsonifiedResponse);
-            console.log("Vendor Loaded");
-            fetch(`http://localhost:5000/api/items`)
-             .then((response) => {
-                return response.json();
-              })
-              .then((jsonifiedResponse) => {
-                setItemListState(jsonifiedResponse);
-                setLoadState(true);
-                console.log("Fully Loaded");
-              })
-            .catch((error) => {
-              console.log('Inventory Error: ', error);
-            });
-          })
-        .catch((error) => {
-          console.log('Venor Load Error: ', error);
-        });
-      })
-    .catch((error) => {
-      console.log('Category Load Error: ', error);
-    });
+        .then((jsonifiedResponse) => {
+          setItemListState(jsonifiedResponse);
+          setLoadState(true);
+          console.log("Fully Loaded");
+        })
+      .catch((error) => {
+        console.log('Inventory Error: ', error);
+      });
     }
   },[]);
  
@@ -51,13 +27,11 @@ function ItemList() {
       <React.Fragment>
         <h1>Inventory Items</h1>
         {itemListState.map((item) => {
-          var categoryName = categoryListState[item.categoryId-1].categoryName;
-          var vendorName = vendorListState[item.vendorId-1].vendorName;
           return (
             <Item
               itemName={item.itemName}
-              category={categoryName}
-              vendor={vendorName}
+              category={item.category.categoryName}
+              vendor={item.vendor.vendorName}
               purchasePrice={item.purchasePrice}
               purchaseQuantity ={item.purchaseQuantity}
               purchaseQuantityType={item.purchaseQuantityType}
