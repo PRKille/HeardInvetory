@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Category from './Category';
+import { Link } from 'react-router-dom';
 
 function CategoryList() {
   const [ categoryListState, setCategoryListState ] = useState([]);
@@ -34,6 +35,10 @@ function CategoryList() {
               />
             );
           })}
+          <br />
+        <Link to="/categories/add">
+          <button>Add New Category</button>
+        </Link>
       </React.Fragment>
     );
   } else {
