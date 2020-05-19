@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Vendor from './Vendor';
+import { Link } from 'react-router-dom';
 
 function VendorList() {
   const [ vendorListState, setVendorListState ] = useState([]);
@@ -34,6 +35,10 @@ function VendorList() {
               />
             );
           })}
+          <br />
+          <Link to="/vendors/add">
+          <button>Add New Vendor</button>
+        </Link>
       </React.Fragment>
     );
   } else {
