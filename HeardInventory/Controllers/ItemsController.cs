@@ -77,7 +77,9 @@ namespace HeardInventory.Controllers
     public void Delete(int id)
     {
       Item itemForDeletion = _db.Items.FirstOrDefault(item => item.ItemId == id);
+      Audit auditForDeletion = _db.Audits.FirstOrDefault(audit => audit.ItemId == id);
       _db.Items.Remove(itemForDeletion);
+      _db.Audits.Remove(auditForDeletion);
       _db.SaveChanges();
     }
   }
