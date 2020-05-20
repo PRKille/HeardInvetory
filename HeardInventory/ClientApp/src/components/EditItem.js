@@ -100,17 +100,21 @@ function EditItem(props) {
   return (
     <React.Fragment>
       <form onSubmit={handleSubmit}>
+        <label for="itemName">Item</label>
         <input type="text" name="itemName" defaultValue={itemState.itemName} />
         <select name="category">
-        <option>Select Category</option>
-        {categoryOptions}
-      </select>
-      <select name="vendor">
-        <option>Select Vendor</option>
-        {vendorOptions}
-      </select>
+          <option>Select Category</option>
+          {categoryOptions}
+        </select>
+        <select name="vendor">
+          <option>Select Vendor</option>
+          {vendorOptions}
+        </select>
+        <label for="purchasePrice">Price</label>
         <input type="text" name="purchasePrice" defaultValue={itemState.purchasePrice} />
+        <label for="purchaseQuantity">Amount</label>
         <input type="text" name="purchaseQuantity" defaultValue={itemState.purchaseQuantity} />
+        <label for="purchaseQuantityType">Type</label>
         <input type="text" name="purchaseQuantityType" defaultValue={itemState.purchaseQuantityType} />
         <button type="submit">Submit</button>
       </form>
