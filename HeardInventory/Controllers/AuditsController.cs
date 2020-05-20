@@ -48,7 +48,7 @@ namespace HeardInventory.Controllers
         int PurchasePrice = Int32.Parse(audit.GetValue("PurchasePrice").ToString());
         int StartingInventory = Int32.Parse(audit.GetValue("StartingInventory").ToString());
         int CurrentInventory = Int32.Parse(audit.GetValue("CurrentInventory").ToString());
-        int ItemPurchases = Int32.Parse(audit.GetValue("CurrentInventory").ToString());
+        int ItemPurchases = Int32.Parse(audit.GetValue("ItemPurchases").ToString());
         Audit updatedAudit = new Audit();
         updatedAudit.AuditId = AuditId;
         updatedAudit.ItemName = ItemName;
