@@ -64,24 +64,24 @@ function AddItem() {
   };
 
 
-    const categoryOptions = categoryState.map((category) => 
-      <option
-        value={category.categoryId}
-        >
-          {category.categoryName}
-        </option>
-      );
+  const categoryOptions = categoryState.map((category) => 
+    <option
+      value={category.categoryId}
+      >
+        {category.categoryName}
+      </option>
+    );
 
-    const vendorOptions = vendorState.map((vendor) => 
-      <option
-        value={vendor.vendorId}
-        >
-          {vendor.vendorName}
-        </option>
-      );
-  
-    return (
-      <form onSubmit={handleSubmit}>
+  const vendorOptions = vendorState.map((vendor) => 
+    <option
+      value={vendor.vendorId}
+      >
+        {vendor.vendorName}
+      </option>
+    );
+
+  return (
+    <form onSubmit={handleSubmit}>
       <input type="text" name="itemName" placeholder="Name" />
       <select name="category">
         <option>Select Category</option>
