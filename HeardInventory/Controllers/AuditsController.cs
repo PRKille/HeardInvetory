@@ -32,5 +32,13 @@ namespace HeardInventory.Controllers
       _db.Audits.Add(audit);
       _db.SaveChanges();
     }
+
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
+      Audit auditForDeletion = _db.Audits.FirstOrDefault(audit => audit.ItemId == id);
+      _db.Audits.Remove(auditForDeletion);
+      _db.SaveChanges();
+    }
   }
 }
