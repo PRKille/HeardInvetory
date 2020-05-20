@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function AuditForm() {
 
   const [ auditState, setAuditState ] = useState([]);
   const [ loadState, setLoadState ] = useState(false);
+  
+  const history = useHistory();
   
   useEffect(() => {
       fetch(`http://localhost:5000/api/audits`)
@@ -42,7 +45,7 @@ function AuditForm() {
     fetch(`http://localhost:5000/api/audits`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
-        console.log(result);
+        history.push('/auditresults')
       })
       .catch((error) => console.log('error', error));
   };
@@ -60,7 +63,8 @@ function AuditForm() {
               <input type="hidden" name="ItemId" value={audit.itemId} />
               <input type="hidden" name="PurchasePrice" value={audit.purchasePrice} />
               <input type="hidden" name="StartingInventory" value={audit.startingInventory} />
-              <input type="hidden" name="ItemPurchases" value={audit.itemPurchases} />
+              <label>Amount Purchased Since Previous Audit</label>
+              <input type="text" name="ItemPurchases" />
               <br />
             </React.Fragment>
           )
