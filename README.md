@@ -61,14 +61,12 @@ _Enter the following commands in Terminal (macOS) or PowerShell (Windows):_
 * ``cd desktop``
 * ``git clone`` followed by the name of this repository
 * ``cd HeardInventory.Solution``
+* ``cd HeardInventory``
 
-_Confirm that you have navigated to the Library.Solution directory (e.g., by entering the command_ ``pwd`` _in Terminal)._
-
-_Recreate the ``patrick_kille`` database using the following commands (in Terminal on macOS or PowerShell on Windows):_
+_Recreate the ``heard_inventory`` database using the following commands (in Terminal on macOS or PowerShell on Windows):_
 * ``dotnet ef database update``
 
 _Run this application by entering the following command in Terminal (macOS) or PowerShell (Windows):_
-* ``cd HeardInventory``
 * ``dotnet restore``
 * ``dotnet build``
 * ``dotnet run`` or ``dotnet watch run``
