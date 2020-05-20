@@ -12,6 +12,7 @@ import EditItem from './EditItem';
 import AddCategory from './AddCategory';
 import AddVendor from './AddVendor';
 import AuditForm from './AuditForm';
+import AuditResults from './AuditResults';
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 
@@ -30,6 +31,7 @@ function InventoryControl() {
       <Route path="/categories/:categoryName/:categoryId" component={CategoryDetails} />
       <Route path="/vendors/:vendorName/:vendorId" component={VendorDetails} />
       <Route exact path="/audit" component={AuditForm} />
+      <Route exact path="/auditresults" component={AuditResults} />
     </BrowserRouter>
     );
   }

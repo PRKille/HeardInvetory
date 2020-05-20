@@ -1,5 +1,6 @@
 import React from 'react';
 import InventoryControl from './components/InventoryControl';
+import './App.css'
 
 function App() {
   return (

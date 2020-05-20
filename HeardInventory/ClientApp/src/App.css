@@ -1,0 +1,34 @@
+body {
+  background-color: #000000;
+  color: #C3FBF4;
+}
+
+select {
+  height: 30px;
+  border-top: 2px;
+}
+
+button {
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:linear-gradient(to bottom, #ebe8dd 5%, #c7c4bd 100%);
+	background-color:#ebe8dd;
+	border-radius:15px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#505739;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding: 8px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+button:hover {
+	background:linear-gradient(to bottom, #c7c4bd 5%, #ebe8dd 100%);
+	background-color:#c7c4bd;
+}
+button:active {
+	position:relative;
+	top:1px;
+}

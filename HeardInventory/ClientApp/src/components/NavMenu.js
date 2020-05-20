@@ -26,6 +26,9 @@ function NavMenu()  {
               <NavItem>
                 <NavLink className="text-dark" href="/vendors">Your Vendors</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink className="text-dark" href="/audit">Start A New Audit</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

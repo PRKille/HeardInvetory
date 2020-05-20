@@ -4,6 +4,10 @@
   word-break: break-all;
 }
 
+.navbar {
+  background-color: #5684AE;
+}
+
 html {
   font-size: 14px;
 }
