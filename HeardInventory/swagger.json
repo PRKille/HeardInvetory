@@ -6,6 +6,147 @@
     "version": "v1"
   },
   "paths": {
+    "/api/Audits": {
+      "get": {
+        "tags": [
+          "Audits"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Audit"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Audit"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Audit"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Audits"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Audit"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Audit"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Audit"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Audit"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Audits"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Audits/{id}": {
+      "delete": {
+        "tags": [
+          "Audits"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Categories": {
       "get": {
         "tags": [
@@ -566,6 +707,60 @@
   },
   "components": {
     "schemas": {
+      "Audit": {
+        "type": "object",
+        "properties": {
+          "AuditId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ItemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PurchasePrice": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "StartingInventory": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CurrentInventory": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ItemPurchases": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "JToken": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/JToken"
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "CategoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CategoryName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Vendor": {
         "type": "object",
         "properties": {
@@ -575,13 +770,6 @@
           },
           "VendorName": {
             "type": "string",
-            "nullable": true
-          },
-          "Items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Item"
-            },
             "nullable": true
           }
         },
@@ -632,35 +820,6 @@
           },
           "PurchaseQuantityType": {
             "type": "string",
-            "nullable": true
-          },
-          "StartingInventory": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "CurrentInventory": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Category": {
-        "type": "object",
-        "properties": {
-          "CategoryId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "CategoryName": {
-            "type": "string",
-            "nullable": true
-          },
-          "Items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Item"
-            },
             "nullable": true
           }
         },
