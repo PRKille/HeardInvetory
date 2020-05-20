@@ -16,3 +16,6 @@
 
 5/19/20:
 0746 Making up for late start yesterday.
+
+5/20/20:
+0758 Why is it always the hard stuff at the end?
