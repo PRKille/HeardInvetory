@@ -10,7 +10,6 @@ function Item(props) {
         <li>Category: {props.category}</li>
         <li>Vendor: {props.vendor}</li>
         <li>Purchase Info: ${props.purchasePrice}/{props.purchaseQuantity}{props.purchaseQuantityType}</li>
-        <li>Last Inventory: {props.startingInventory} {props.purchaseQuantityType}</li>
         <Link to={`/items/${props.itemId}`}>
           <button>Edit {props.itemName}</button>
         </Link>
