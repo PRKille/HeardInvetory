@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import Item from './Item';
 
 function VendorDetails(props) {
   const { match: { params } } = props;
@@ -38,9 +39,19 @@ function VendorDetails(props) {
         <h1>{params.vendorName}</h1>
         {itemsState.map((item) => {
           return (
-            <p>{item.itemName}</p>
-          )
-        })}
+            <Item
+              itemName={item.itemName}
+              category={item.category.categoryName}
+              vendor={item.vendor.vendorName}
+              purchasePrice={item.purchasePrice}
+              purchaseQuantity ={item.purchaseQuantity}
+              purchaseQuantityType={item.purchaseQuantityType}
+              startingInventory={item.startingInventory}
+              itemId={item.itemId}
+              key={item.itemId}
+              />
+            )
+          })}
         <button onClick={() => {handleDelete(params.vendorId)}}>Delete</button>
       </React.Fragment>
     )
