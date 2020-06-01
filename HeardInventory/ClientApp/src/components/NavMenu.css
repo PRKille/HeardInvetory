@@ -5,7 +5,7 @@
 }
 
 .navbar {
-  background-color: #5684AE;
+  background-color: rgba(86, 131, 174, 0.664);
 }
 
 html {
@@ -19,4 +19,30 @@ html {
 
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.text-dark {
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:linear-gradient(to bottom, #ebe8dd 5%, #c7c4bd 100%);
+	background-color:#ebe8dd;
+	border-radius:15px;
+	border:2px solid #333029;
+	cursor:pointer;
+	color:#505739;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #ffffff;
+  margin: 2px;
+  text-align: center;
+  width: 10%;
+}
+.text-dark:hover {
+	background:linear-gradient(to bottom, #c7c4bd 5%, #ebe8dd 100%);
+	background-color:#c7c4bd;
+}
+.text-dark:active {
+	position:relative;
+	top:1px;
 }

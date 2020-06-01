@@ -1,11 +1,26 @@
 body {
-  background-color: #000000;
-  color: #C3FBF4;
+	background-color: #c5c5c594;
 }
 
 select {
   height: 30px;
-  border-top: 2px;
+	width: 100%;
+}
+
+input {
+	width: 100%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 30%;
+	margin-left: 35%;
+}
+
+.form-control {
+	border: none;
 }
 
 button {
@@ -23,6 +38,7 @@ button {
 	padding: 8px 12px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
+	margin: 2px;
 }
 button:hover {
 	background:linear-gradient(to bottom, #c7c4bd 5%, #ebe8dd 100%);
