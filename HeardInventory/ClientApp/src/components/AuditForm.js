@@ -56,14 +56,16 @@ function AuditForm() {
         {auditState.map((audit) => {
           return (
             <React.Fragment>
-              <label htmlFor={audit.auditId}>${audit.itemName}: Previous Inventory: {audit.startingInventory} Current Inventory: </label>
+              <h3>{audit.itemName}</h3>
+              <p>Previous Inventory: {audit.startingInventory} </p>
+              <label htmlFor={audit.auditId}>Current Inventory: </label>
               <input type="text" name=
               "CurrentInventory" id={audit.auditId} />
               <input type="hidden" name="ItemName" value={audit.itemName} />
               <input type="hidden" name="ItemId" value={audit.itemId} />
               <input type="hidden" name="PurchasePrice" value={audit.purchasePrice} />
               <input type="hidden" name="StartingInventory" value={audit.startingInventory} />
-              <label>Amount Purchased Since Previous Audit</label>
+              <label>Amount Purchased Since Previous Audit:</label>
               <input type="text" name="ItemPurchases" />
               <br />
             </React.Fragment>
