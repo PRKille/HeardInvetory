@@ -81,21 +81,35 @@ function AddItem() {
     );
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="itemName" placeholder="Name" />
-      <select name="category">
-        <option>Select Category</option>
-        {categoryOptions}
-      </select>
-      <select name="vendor">
-        <option>Select Vendor</option>
-        {vendorOptions}
-      </select>
-      <input type="text" name="purchasePrice" placeholder="Price" />
-      <input type="text" name="purchaseQuantity" placeholder="Quantity" />
-      <input type="text" name="purchaseQuantityType" placeholder="Quantity Type" />
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div className='form-control'>
+          <input type="text" name="itemName" placeholder="Name" />
+        </div>
+        <div className='form-control'>
+          <select name="category">
+            <option>Select Category</option>
+            {categoryOptions}
+          </select>
+        </div>
+        <div className='form-control'>
+          <select name="vendor">
+            <option>Select Vendor</option>
+            {vendorOptions}
+          </select>
+        </div>
+        <div className='form-control'>
+          <input type="text" name="purchasePrice" placeholder="Price" />
+        </div>
+        <div className='form-control'>
+          <input type="text" name="purchaseQuantity" placeholder="Quantity" />
+        </div>
+        <div className='form-control'>
+          <input type="text" name="purchaseQuantityType" placeholder="Quantity Type" />
+        </div>
+          <button type="submit">Submit</button>
+      </form>
+    </div>
   )
 }
 
