@@ -33,8 +33,32 @@ function AuditResults() {
   }
 
   const calculateFoodCost = (e) => {
+    e.preventDefault();
     setCostState(foodCost(e.target.sales.value));
-  }
+    
+    let newStartingInventory = [];
+    for (let i = 0; i < auditState.length; i++) {
+      newStartingInventory.push({ CurrentInventory: auditState[i].currentInventory})
+    }
+
+    let myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    let raw = JSON.stringify(newStartingInventory);
+
+    let requestOptions = {
+      method: 'PUT',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    fetch(`http://localhost:5000/api/audits/finalize`, requestOptions)
+    .then((response) => response.text())
+      .then((result) => {
+      })
+      .catch((error) => console.log('error', error));
+  };
   
   let currentView = null;
 
@@ -52,6 +76,8 @@ function AuditResults() {
         <input type="text" name="sales" />
         <button type="submit">Calculate</button>
       </form>
+      <h2>WARNING: Pressing Calculate will update your previous Inventory numbers.</h2>
+      <h3>Make sure everthing is correct before continuing.</h3>
     </React.Fragment>
   }
 
