@@ -1,7 +1,7 @@
 using System;
-using System.Text.Json;
 using System.Linq;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using Newtonsoft.Json.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
@@ -57,6 +57,20 @@ namespace HeardInventory.Controllers
         updatedAudit.StartingInventory = StartingInventory;
         updatedAudit.CurrentInventory = CurrentInventory;
         updatedAudit.ItemPurchases = ItemPurchases;
+        _db.Entry(updatedAudit).State = EntityState.Modified;
+      }
+      _db.SaveChanges();
+    }
+
+    [EnableCors("MyPolicy")]
+    [HttpPut("finalize")]
+    public void InventoryTransfer([FromBody] JArray newInventory)
+    {
+      foreach(JObject value in newInventory)
+      {
+        int NewStartingInventory = Int32.Parse(value.GetValue("CurrentInventory").ToString());
+        Audit updatedAudit = new Audit();
+        updatedAudit.StartingInventory = NewStartingInventory;
         _db.Entry(updatedAudit).State = EntityState.Modified;
       }
       _db.SaveChanges();
