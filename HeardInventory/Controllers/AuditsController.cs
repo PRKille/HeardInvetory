@@ -63,25 +63,24 @@ namespace HeardInventory.Controllers
     }
 
     [EnableCors("MyPolicy")]
-    [HttpPut("finalize")]
-    public void InventoryTransfer([FromBody] JArray newInventory)
+    [HttpPut]
+    public void Put([FromBody] Object sqlCommand)
     {
-      foreach(JObject value in newInventory)
-      {
-        int NewStartingInventory = Int32.Parse(value.GetValue("CurrentInventory").ToString());
-        Audit updatedAudit = new Audit();
-        updatedAudit.StartingInventory = NewStartingInventory;
-        _db.Entry(updatedAudit).State = EntityState.Modified;
-      }
-      _db.SaveChanges();
-    }
+      Console.WriteLine("NEW INVENTORY: "+sqlCommand);
+      // Attempt to mimic previous PUT method
+      // foreach(JObject value in newInventory)
+      // {
+      //   int AuditId = Int32.Parse(value.GetValue("AuditId").ToString());
+      //   int NewStartingInventory = Int32.Parse(value.GetValue("CurrentInventory").ToString());
+      //   Audit updatedAudit = new Audit();
+      //   updatedAudit.StartingInventory = NewStartingInventory;
+      //   _db.Entry(updatedAudit).State = EntityState.Modified;
+      // }
 
-    [HttpDelete("{id}")]
-    public void Delete(int id)
-    {
-      Audit auditForDeletion = _db.Audits.FirstOrDefault(audit => audit.ItemId == id);
-      _db.Audits.Remove(auditForDeletion);
+      // Direct SQL command not allowed?
+      _db.Database.ExecuteSqlCommand("UPDATE Audits SET StartingInventory = CurrentInventory");
       _db.SaveChanges();
+      // return _db.Audits.ToList();
     }
   }
 }
