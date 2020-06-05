@@ -62,31 +62,31 @@ namespace HeardInventory.Controllers
       _db.SaveChanges();
     }
 
-    [EnableCors("MyPolicy")]
-    [HttpPut("finalize")]
-    public void Finalize([FromBody] JArray newInventory)
-    {
-      Console.WriteLine("NEW INVENTORY: "+newInventory);
-      foreach(JObject value in newInventory)
-      {
-        int AuditId = Int32.Parse(value.GetValue("AuditId").ToString());
-        string ItemName = value.GetValue("ItemName").ToString();
-        int ItemId = Int32.Parse(value.GetValue("ItemId").ToString());
-        int PurchasePrice = Int32.Parse(value.GetValue("PurchasePrice").ToString());
-        int NewStartingInventory = Int32.Parse(value.GetValue("CurrentInventory").ToString());
-        int CurrentInventory = Int32.Parse(value.GetValue("CurrentInventory").ToString());
-        int ItemPurchases = Int32.Parse(value.GetValue("ItemPurchases").ToString());
-        Audit updatedAudit = new Audit();
-        updatedAudit.AuditId = AuditId;
-         updatedAudit.ItemName = ItemName;
-        updatedAudit.ItemId = ItemId;
-        updatedAudit.PurchasePrice = PurchasePrice;
-        updatedAudit.StartingInventory = NewStartingInventory;
-        updatedAudit.CurrentInventory = CurrentInventory;
-        updatedAudit.ItemPurchases = ItemPurchases;
-        _db.Entry(updatedAudit).State = EntityState.Modified;
-      }
-      _db.SaveChanges();
-    }
+    // [EnableCors("MyPolicy")]
+    // [HttpPut("finalize")]
+    // public void Finalize([FromBody] JArray newInventory)
+    // {
+    //   Console.WriteLine("NEW INVENTORY: "+newInventory);
+    //   foreach(JObject value in newInventory)
+    //   {
+    //     int AuditId = Int32.Parse(value.GetValue("AuditId").ToString());
+    //     string ItemName = value.GetValue("ItemName").ToString();
+    //     int ItemId = Int32.Parse(value.GetValue("ItemId").ToString());
+    //     int PurchasePrice = Int32.Parse(value.GetValue("PurchasePrice").ToString());
+    //     int NewStartingInventory = Int32.Parse(value.GetValue("CurrentInventory").ToString());
+    //     int CurrentInventory = Int32.Parse(value.GetValue("CurrentInventory").ToString());
+    //     int ItemPurchases = Int32.Parse(value.GetValue("ItemPurchases").ToString());
+    //     Audit updatedAudit = new Audit();
+    //     updatedAudit.AuditId = AuditId;
+    //      updatedAudit.ItemName = ItemName;
+    //     updatedAudit.ItemId = ItemId;
+    //     updatedAudit.PurchasePrice = PurchasePrice;
+    //     updatedAudit.StartingInventory = NewStartingInventory;
+    //     updatedAudit.CurrentInventory = CurrentInventory;
+    //     updatedAudit.ItemPurchases = ItemPurchases;
+    //     _db.Entry(updatedAudit).State = EntityState.Modified;
+    //   }
+    //   _db.SaveChanges();
+    // }
   }
 }

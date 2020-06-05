@@ -55,7 +55,7 @@ function AuditResults() {
     };
 
     const id = auditState.length;
-    fetch(`http://localhost:5000/api/audits/finalize`, requestOptions)
+    fetch(`http://localhost:5000/api/audits/`, requestOptions)
     .then((response) => {
       return response.text()}
       )
