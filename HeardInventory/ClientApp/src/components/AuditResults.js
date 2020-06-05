@@ -36,16 +36,16 @@ function AuditResults() {
     e.preventDefault();
     setCostState(foodCost(e.target.sales.value));
     
-    // let newInventory = [];
-    // for (let i = 0; i < auditState.length; i++) {
-    //   console.log(auditState[i]);
-    //   newInventory.push({ AuditId: auditState[i].auditId, ItemName: auditState[i].itemName, ItemId: auditState[i].itemId, PurchasePrice: auditState[i].purchasePrice, StartingInventory: auditState[i].currentInventory, CurrentInventory: auditState[i].currentInventory, ItemPurchases: auditState[i].itemPurchases})
-    // };
+    let newInventory = [];
+    for (let i = 0; i < auditState.length; i++) {
+      console.log(auditState[i]);
+      newInventory.push({ AuditId: auditState[i].auditId, ItemName: auditState[i].itemName, ItemId: auditState[i].itemId, PurchasePrice: auditState[i].purchasePrice, StartingInventory: auditState[i].currentInventory, CurrentInventory: auditState[i].currentInventory, ItemPurchases: auditState[i].itemPurchases})
+    };
 
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
-    let raw = JSON.stringify({"queryType": "SQL", "query": "UPDATE Audits SET StartingInventory = CurrentInventory"});
+    let raw = JSON.stringify(newInventory);
 
     let requestOptions = {
       method: 'PUT',
@@ -55,14 +55,11 @@ function AuditResults() {
     };
 
     const id = auditState.length;
-    fetch(`http://localhost:5000/api/audits/${id}`, requestOptions)
+    fetch(`http://localhost:5000/api/audits/finalize`, requestOptions)
     .then((response) => {
-      console.log(response);
-      
       return response.text()}
       )
       .then((jsonifiedResponse) => {
-
       })
       .catch((error) => console.log('error', error));
   };
